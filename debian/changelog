@@ -1,0 +1,6 @@
+mailcheck-lua (1.0) unstable; urgency=low
+
+  * Initial release. Supports only maildirs and plain config file (no
+    variables)
+
+ -- Kamil Essekkat <kamil@essekkat.pl>  Sun, 16 Mar 2014 19:19:48 +0100
