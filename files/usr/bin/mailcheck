@@ -3,6 +3,10 @@
 -- Check for mail in maildirs.
 -- Rewrite in lua of http://mailcheck.sourceforge.net/
 version = '1.0'
+formats = {}
+formats.summary = "%d new %d unread"
+formats.normal = "%s: %d new and %d unread message(s)"
+
 require("lfs")
 
 -- globals
@@ -126,12 +130,12 @@ function main()
     end
     if summary then
         if (globals.new + globals.unread) > 0 then
-            print(string.format("%d new %d unread", globals.new, globals.unread))
+            print(string.format(formats.summary, globals.new, globals.unread))
         end
     else
         for k, v in pairs(maildirs) do 
             if (v.new + v.unread) > 0 then
-                print(string.format("%s: %d new and %d unread message(s)", v.name, v.new, v.unread))
+                print(string.format(formats.normal, v.name, v.new, v.unread))
             end
         end
     end
